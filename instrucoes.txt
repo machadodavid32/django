@@ -1,0 +1,31 @@
+no terminal, digite  django-admin que vai listar todos os comandos encontrados no django
+
+para começar um projeto django, digite: django-admin startproject nomedoprojeto
+depois disso, via terminal, certifique-se que está dentro da pasta certa e digite
+python manage.py runserver
+Será criado um servidor local para dar andamento ao projeto
+Após o passo acima, deverá aparecer um link. Abra-o no navegador
+
+obs: Se quiser alterar a porta no ip, é só digitar python manage.py runserver numerodaporta
+exemplo: python manage.py runserver 5000
+
+para criar um projeto: django-admin createapp nomedoprojeto
+um projeto em django contém aplicações dentro dele. Aplicações de diversas funcionalidades
+
+para criar um app: python manage.py startapp nomedoapp  (denro da pasta do projeto)
+
+Para cada aplicação que criar, importe esta para o arquivo settings.py, em INSTALLED_APPS.
+Neste caso, seria 'invista_me'
+
+Para alterar a lingua, no mesmo arquivo settings.py, em LANGUAGE_CODE = 'pt-br'
+e em TIME_ZONE = 'America/Sao_Paulo'
+
+Para adicionar caminhos, vá no arquivo urls.py e import o app criado.
+Neste caso, seria o app invista: from invista import views
+
+Na sequencia, entre em views e import: from django.shortcuts import HttpResponser
+e crie uma função que desejar (ver no arquivo a função que foi criada)
+
+Depois do passo acima, volte ao arquivo urls.py e informe a rota em urlpatterns
+exemplo: path('',views.pagina_inicial)
+
