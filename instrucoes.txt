@@ -29,3 +29,13 @@ e crie uma função que desejar (ver no arquivo a função que foi criada)
 Depois do passo acima, volte ao arquivo urls.py e informe a rota em urlpatterns
 exemplo: path('',views.pagina_inicial)
 
+Usando templates: Criar uma pasta chamada templates dentro do app e dentro desta pasta criar
+outras pastas com o nome das paginas que estão contidas dentro. Para cada página, uma pasta.
+
+Tabelas para banco de dados são feitas através do models.py
+Para passar os dados para o banco de dados, vá no terminal, na mesma pasta do arquivos manage.py
+e digite: python manage.py makemigrations
+Será criado uma pasta chamado migrations dentro do app
+Para fazer as migrações, digite no terminal: python manage.py migrate
+Toda as vezes que for criar ou alterar uma tabela, os passos acima devem ser refeitos.
+Se for remover uma coluna, mesma coisa, apague no arquivo models.py e faça makemigrations e migrate
