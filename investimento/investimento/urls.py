@@ -21,9 +21,11 @@ from invista import views
 # Para cada página criada, temos que fazer uma função em views e adicionar esta função abaixo..
 # com dados abaixo
 urlpatterns = [
-    path('',views.pagina_inicial),
+    path('admin/',admin.site.urls),
+    path('',views.investimentos, name='investimentos'),
     path('contato/', views.pagina_contato, name='contato'),
     path('minha_historia/', views.minha_historia, name='minha_historia'),
-    path('novo_investimento/', views.novo_investimento, name='novo_investimento'),
-    path('investimento_registrado/', views.investimento_registrado, name='investimento_registrado')
+    path('novo_investimento/', views.criar, name='novo_investimento'),
+    path('investimento_registrado/', views.investimento_registrado, name='investimento_registrado'),
+    path('/<int:id_investimento>', views.detalhe, name='detalhe')
 ]
