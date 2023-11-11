@@ -11,9 +11,33 @@
     <title>Invista-me</title>
   </head>
   <body>
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand" href="{% url 'investimentos' %}">Invista-me!</a>
+          
+          <ul style="list-style: none;">
+            {% if user.is_authenticated %}  <!--Se o usuario estiver autenticado...-->
+            <li style="float:left; margin-right: 20px" >
+              <strong class="nav-item nav-link">Bem-vindo {{user.get_username}}</strong>
+            </li>
+            
+            <li style="float:left; margin-right: 20px" >
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Sair do Sistema</a>
+            </li>
+            {% else %}
+            <li style="float:left; margin-right: 20px" >
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li style="float:left">
+              <a class="nav-item nav-link" href="{% url 'novo_usuario' %}">Cadastre-se</a>
+            </li>
+            {% endif %}
+          </ul>
     </nav>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{message}}</div>
+        {% endfor %}
+        {% endif %}
     {% block conteudo %}
     {% endblock %}
     <!-- Optional JavaScript; choose one of the two! -->

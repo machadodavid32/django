@@ -17,11 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from invista import views
+from usuarios import views as usuario_views
+from django.contrib.auth import views as auth_views
 
 # Para cada página criada, temos que fazer uma função em views e adicionar esta função abaixo..
 # com dados abaixo
 urlpatterns = [
     path('admin/',admin.site.urls),
+    path('conta/',usuario_views.novo_usuario, name='novo_usuario'),
+    path('login/',auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
+    path('logout/',auth_views.LogoutView.as_view(template_name='usuarios/logout.html'), name='logout'),
     path('',views.investimentos, name='investimentos'),
     path('contato/', views.pagina_contato, name='contato'),
     path('minha_historia/', views.minha_historia, name='minha_historia'),
