@@ -79,11 +79,25 @@ WSGI_APPLICATION = 'investimento.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '9k1BifaaiYCRjWCG',
+        'HOST': 'db.yfclfbrbimasabucrryo.supabase.co',
+        'PORT': '5432'
     }
 }
+
+# Configuração acima será para postgree sql banco de dados na nuvem
+#Configuração abaixo para sqlite3
+#{
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 
 
 # Password validation
